@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+   
+
+    <div
+      class="flex gap-2 border-2 border-black rounded-lg w-[250px] lg:w-[350px] p-2 m-auto mt-10 items-center "
+    >
+      <img src="search.png" alt=""  class="h-5"/>
+      <input type="search" id="search" class="outline-none w-full" placeholder="search" />
+    </div>
+    <table
+      id="table"
+      class="w-[20%] m-auto border-collapse shadow-lg shadow-black border-3 border-black text-center"
+    >
+      <caption class="font-bold text-lg mt-5 mb-2">
+        STUDENT DATA
+      </caption>
+      <thead>
+        <tr>
+          <th class="border-3 border-black md:p-2 text-center text-lg">
+            Roll No
+          </th>
+          <th class="border-3 border-black md:p-2 text-center text-lg">Name</th>
+          <th class="border-3 border-black md:p-2 text-center text-lg">
+            Phone no
+          </th>
+          <th class="border-3 border-black md:p-2 text-center text-lg">
+            Course
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">523</td>
+          <td class="border-2 border-black md:p-4 text-center">Rameen</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">IT</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">389</td>
+          <td class="border-2 border-black md:p-4 text-center">Sana</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">CS</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">580</td>
+          <td class="border-2 border-black md:p-4 text-center">Ali</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">IT</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">112</td>
+          <td class="border-2 border-black md:p-4 text-center">Aliya</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">AI</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">903</td>
+          <td class="border-2 border-black md:p-4 text-center">Raza</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">AI</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">123</td>
+          <td class="border-2 border-black md:p-4 text-center">Malik</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">IT</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">673</td>
+          <td class="border-2 border-black md:p-4 text-center">Komal</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">CS</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">673</td>
+          <td class="border-2 border-black md:p-4 text-center">Bushra</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">CS</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">673</td>
+          <td class="border-2 border-black md:p-4 text-center">Sheeza</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">CS</td>
+        </tr>
+        <tr>
+          <td class="border-2 border-black md:p-4 text-center">673</td>
+          <td class="border-2 border-black md:p-4 text-center">Bilal</td>
+          <td class="border-2 border-black md:p-4 text-center">33652754765</td>
+          <td class="border-2 border-black md:p-4 text-center">AI</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function toggle() {
+        let search = document.getElementById("search");
+        let icon = document.getElementById("icon");
+        if (search.value.trim() !== "") {
+          icon.style.display = "none";
+        } else {
+          icon.style.display = "block";
+        }
+      }
+      let search = document.getElementById("search");
+      let table = document.getElementById("table");
+      let data = document.getElementsByTagName("tr");
+      let text = document.getElementById("text");
+      search.addEventListener("input", function () {
+        let value = search.value.toLowerCase();
+
+        for (let i = 1; i < data.length; i++) {
+          let tableData = data[i].textContent.toLowerCase(); // data[i] shows convert one by one!
+          if (tableData.includes(value)) {
+            data[i].style.display = ""; // also display one by one to avoid from mess up!
+          } else {
+            data[i].style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
